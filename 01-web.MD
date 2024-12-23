@@ -51,7 +51,9 @@ Create Nginx Reverse Proxy Configuration.
 vim /etc/nginx/default.d/roboshop.conf 
 ```
 
-Add the following content 
+Add the following content , replace localhost with your domain example as sivakumar.cloud
+
+location /api/catalogue/ { proxy_pass http://localhost:8080/; }     as    location /api/catalogue/ { proxy_pass http://sivakumar.cloud:8080/; }
 ```
 vim /etc/nginx/default.d/roboshop.conf 
 ```
@@ -63,7 +65,7 @@ location /images/ {
   root   /usr/share/nginx/html;
   try_files $uri /images/placeholder.jpg;
 }
-location /api/catalogue/ { proxy_pass http://localhost:8080/; }
+location /api/catalogue/ { proxy_pass http://localhost:8080/; }      
 location /api/user/ { proxy_pass http://localhost:8080/; }
 location /api/cart/ { proxy_pass http://localhost:8080/; }
 location /api/shipping/ { proxy_pass http://localhost:8080/; }
